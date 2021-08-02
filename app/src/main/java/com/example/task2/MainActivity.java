@@ -20,6 +20,13 @@ MyCanvas myCanvas;
 
 
     setContentView(myCanvas);
+//    if(myCanvas.z>=0)
+//    {
+//        Intent i1 = new Intent (this, MainActivity2.class);
+//        String s = Integer.toString(myCanvas.count);
+//        i1.putExtra("msg", s);
+//        startActivity(i1);
+//    }
 //}
 //else
 //{

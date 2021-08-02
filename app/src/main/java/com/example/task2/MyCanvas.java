@@ -19,11 +19,11 @@ public class MyCanvas extends View {
     Paint paint;
     Rect rect;
     private final Context context;
-    float x;
+    float x = getWidth() / 2;
     float y;
 int count = 0;
 int c=0;
-    int i = 0;
+    float i = 0;
     float l;
     float m;
     int z=0;
@@ -114,7 +114,7 @@ z++;
         }
         i++;
         canvas.drawColor(Color.BLACK);
-        canvas.drawCircle(x, y, canvas.getHeight() / 32, paint);
+        canvas.drawCircle(x, y, getHeight() / 32, paint);
         if(( pointX)<=(5*l/6)) {
 
 
@@ -133,12 +133,17 @@ z++;
         else
         {
 
-
-
-            Intent i1 = new Intent (context, MainActivity2.class);
+Intent i1 = new Intent();
+i1.setClass(context,MainActivity2.class);
             String s = Integer.toString(count);
             i1.putExtra("msg", s);
-            context.startActivity(i1);
+            i1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+context.startActivity(i1);
+
+//            Intent i1 = new Intent (context, MainActivity2.class);
+//            String s = Integer.toString(count);
+//            i1.putExtra("msg", s);
+//            context.startActivity(i1);
 
         }
     }
@@ -166,30 +171,9 @@ z++;
         postInvalidate();
         return true;
     }
-//    @Override
-//    public void onClick(View v)
-//    {
-//        Intent intent = new Intent();
-//        intent.setClass(v.getContext(), Normalizer.Form.class);
-//        startActivity(intent);
-//    }
+
 }
-//        final Handler handler = new Handler();
-//        final int delay = 1000; // 1000 milliseconds == 1 second
-//
-//        handler.postDelayed(new Runnable() {
-//            public void run() {
-////                System.out.println("myHandler: here!"); // Do your work here
-//                canvas.drawCircle(x, y, canvas.getHeight() / 32, paint);
-//                update();
-//                handler.postDelayed(this, delay);
-//            }
-//        }, delay);
-//    public void update()
-//    {
-//        x += xv;
-//        y += yv;
-//    }
+
 
 
 
